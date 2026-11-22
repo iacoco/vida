@@ -4788,6 +4788,29 @@
       fit();
     })();
   </script>
+  <script src="published-state.js"></script>
+  <script>
+    (() => {
+      const publishedState = window.ARBOL_PUBLISHED_STATE;
+      const isLocalPreview = new URLSearchParams(location.search).has('published-preview');
+      const isPublishedOrigin = /^https?:$/.test(location.protocol)
+        && (isLocalPreview || (location.hostname !== '127.0.0.1' && location.hostname !== 'localhost'));
+      if (!publishedState || !isPublishedOrigin) return;
+
+      const migrationKey = 'arbol-evolutivo-published-layout-v1';
+      if (localStorage.getItem(migrationKey) === 'applied') return;
+
+      try {
+        Object.entries(publishedState.storage || {}).forEach(([key, value]) => {
+          localStorage.setItem(key, value);
+        });
+        localStorage.setItem(migrationKey, 'applied');
+        document.documentElement.dataset.publishedLayout = 'local-state-v1';
+      } catch (_) {
+        document.documentElement.dataset.publishedLayout = 'storage-unavailable';
+      }
+    })();
+  </script>
   <script src="vendor/xlsx-0.20.3.full.min.js"></script>
   <script src="vendor/x6-3.1.7.min.js"></script>
   <script>
