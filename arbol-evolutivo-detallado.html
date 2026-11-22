@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Árbol evolutivo detallado · Parte 1</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: light-dark(#f3f4f6, #15171a);
+      --surface: light-dark(#ffffff, #23262a);
+      --text: light-dark(#17202a, #f5f7fa);
+      --muted: light-dark(#5e6874, #acb4bd);
+      --border: light-dark(#d9dde3, #3c4148);
+      --accent: light-dark(#087f8c, #66d7df);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { background: var(--bg); color: var(--text); font: 14px/1.4 system-ui, sans-serif; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+    header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 12px; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .part { font-weight: 600; }
+    .hint { margin-right: auto; }
+    .hint, #zoom-value { color: var(--muted); }
+    .jump { display: inline-flex; align-items: center; gap: 6px; }
+    select { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 8px; padding: 7px 28px 7px 9px; font: inherit; }
+    button { appearance: none; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 8px; padding: 7px 10px; font: inherit; cursor: pointer; }
+    button:hover { border-color: var(--accent); }
+    button:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 40%, transparent); outline-offset: 2px; }
+    #viewport { position: relative; min-height: 0; overflow: hidden; cursor: grab; touch-action: none; background: var(--bg); }
+    #viewport.dragging { cursor: grabbing; }
+    #tree-image { position: absolute; left: 0; top: 0; display: block; width: 4467px; height: 2437px; max-width: none; transform-origin: 0 0; user-select: none; pointer-events: none; box-shadow: 0 4px 30px color-mix(in srgb, var(--text) 16%, transparent); }
+    @media (max-width: 600px) {
+      .hint { display: none; }
+      header { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="part">Parte 1 · Hádico y origen de la vida</span>
+    <label class="jump">Ir a
+      <select id="jump-to">
+        <option value="all">Vista completa</option>
+        <option value="hadean">Hádico</option>
+        <option value="oceans">Océanos y agua · 4,4 Ga</option>
+        <option value="vents">Ventilas alcalinas · 4,2 Ga</option>
+        <option value="serpentinization">Serpentinización</option>
+        <option value="chemistry">Química prebiótica</option>
+        <option value="protocells">Protocélulas</option>
+        <option value="nucleotides">Nucleótidos</option>
+        <option value="rna-dna">Mundo ARN y proto-ADN</option>
+        <option value="luca">LUCA · 3,8 Ga</option>
+        <option value="bacteria">Bacterias</option>
+        <option value="archaea">Arqueas</option>
+        <option value="stromatolites">Estromatolitos · 3,6 Ga</option>
+        <option value="feedback">Bucles de retroalimentación</option>
+        <option value="ecology">Sistema ecológico global</option>
+        <option value="biosphere">Biosfera</option>
+        <option value="bombardment">Bombardeo tardío · 4,0 Ga</option>
+        <option value="eoarchean">Eoarqueano · 4,0 Ga</option>
+        <option value="paleoarchean">Paleoarqueano · 3,6 Ga</option>
+      </select>
+    </label>
+    <span class="hint">Rueda para ampliar · arrastra para moverte</span>
+    <button type="button" id="zoom-out" aria-label="Alejar">−</button>
+    <button type="button" id="zoom-in" aria-label="Acercar">+</button>
+    <button type="button" id="fit">Encajar</button>
+    <button type="button" id="fullscreen">Pantalla completa</button>
+    <span id="zoom-value" aria-live="polite">100%</span>
+  </header>
+  <main id="viewport" aria-label="Primera parte del árbol evolutivo ampliable">
+    <img id="tree-image" src="arbol-parte-01.jpg" width="4467" height="2437" alt="Primera parte del árbol: Hádico, química prebiótica, LUCA, bacterias, arqueas y primeros ecosistemas">
+  </main>
+  <script>
+    (() => {
+      const viewport = document.getElementById('viewport');
+      const image = document.getElementById('tree-image');
+      const zoomValue = document.getElementById('zoom-value');
+      const zoomIn = document.getElementById('zoom-in');
+      const zoomOut = document.getElementById('zoom-out');
+      const fitButton = document.getElementById('fit');
+      const fullscreen = document.getElementById('fullscreen');
+      const jumpTo = document.getElementById('jump-to');
+      const imageWidth = 4467;
+      const imageHeight = 2437;
+      let baseScale = 1;
+      let scale = 1;
+      let x = 0;
+      let y = 0;
+      let dragging = false;
+      let lastX = 0;
+      let lastY = 0;
+      const regions = {
+        hadean: [1600, 180, 2.8],
+        oceans: [1050, 420, 4.2],
+        vents: [1900, 430, 3.5],
+        serpentinization: [1450, 570, 4.5],
+        chemistry: [2150, 880, 3.0],
+        protocells: [2450, 1030, 4.5],
+        nucleotides: [1370, 1110, 5.0],
+        'rna-dna': [1650, 1280, 4.4],
+        luca: [1510, 1480, 5.0],
+        bacteria: [1180, 1610, 4.0],
+        archaea: [1990, 1610, 4.0],
+        stromatolites: [1500, 1890, 4.2],
+        feedback: [3250, 790, 3.2],
+        ecology: [3200, 1300, 3.4],
+        biosphere: [3450, 2050, 3.8],
+        bombardment: [3920, 1000, 4.0],
+        eoarchean: [3940, 1350, 3.8],
+        paleoarchean: [3920, 1830, 3.8]
+      };
+
+      const render = () => {
+        image.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+        zoomValue.textContent = `${Math.round(scale / baseScale * 100)}%`;
+      };
+
+      const fit = () => {
+        const bounds = viewport.getBoundingClientRect();
+        baseScale = Math.min(bounds.width / imageWidth, bounds.height / imageHeight);
+        scale = baseScale;
+        x = (bounds.width - imageWidth * scale) / 2;
+        y = (bounds.height - imageHeight * scale) / 2;
+        render();
+      };
+
+      const zoomAt = (nextScale, clientX, clientY) => {
+        const bounds = viewport.getBoundingClientRect();
+        const px = clientX - bounds.left;
+        const py = clientY - bounds.top;
+        const limited = Math.max(baseScale * 0.8, Math.min(baseScale * 14, nextScale));
+        const ratio = limited / scale;
+        x = px - (px - x) * ratio;
+        y = py - (py - y) * ratio;
+        scale = limited;
+        render();
+      };
+
+      const center = () => {
+        const bounds = viewport.getBoundingClientRect();
+        return { x: bounds.left + bounds.width / 2, y: bounds.top + bounds.height / 2 };
+      };
+
+      const focusRegion = key => {
+        if (key === 'all') {
+          fit();
+          return;
+        }
+        const region = regions[key];
+        if (!region) return;
+        const bounds = viewport.getBoundingClientRect();
+        scale = Math.min(baseScale * region[2], baseScale * 14);
+        x = bounds.width / 2 - region[0] * scale;
+        y = bounds.height / 2 - region[1] * scale;
+        render();
+      };
+
+      zoomIn.addEventListener('click', () => {
+        const point = center();
+        zoomAt(scale * 1.3, point.x, point.y);
+      });
+      zoomOut.addEventListener('click', () => {
+        const point = center();
+        zoomAt(scale / 1.3, point.x, point.y);
+      });
+      fitButton.addEventListener('click', fit);
+      jumpTo.addEventListener('change', () => focusRegion(jumpTo.value));
+      fullscreen.addEventListener('click', async () => {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      });
+      viewport.addEventListener('wheel', event => {
+        event.preventDefault();
+        zoomAt(scale * (event.deltaY < 0 ? 1.14 : 0.88), event.clientX, event.clientY);
+      }, { passive: false });
+      viewport.addEventListener('dblclick', event => zoomAt(scale * 1.7, event.clientX, event.clientY));
+      viewport.addEventListener('pointerdown', event => {
+        dragging = true;
+        lastX = event.clientX;
+        lastY = event.clientY;
+        viewport.classList.add('dragging');
+        viewport.setPointerCapture(event.pointerId);
+      });
+      viewport.addEventListener('pointermove', event => {
+        if (!dragging) return;
+        x += event.clientX - lastX;
+        y += event.clientY - lastY;
+        lastX = event.clientX;
+        lastY = event.clientY;
+        render();
+      });
+      const stopDrag = event => {
+        dragging = false;
+        viewport.classList.remove('dragging');
+        if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+      };
+      viewport.addEventListener('pointerup', stopDrag);
+      viewport.addEventListener('pointercancel', stopDrag);
+      window.addEventListener('resize', fit);
+      image.addEventListener('load', fit);
+      if (image.complete) fit();
+    })();
+  </script>
+</body>
+</html>

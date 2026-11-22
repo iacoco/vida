@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Ensamblaje temprano de Nuna, 1900 millones de años</title>
+  <desc id="desc">Hipótesis esquemática del acercamiento de varios cratones antes de la reconstrucción global disponible a 1800 millones de años.</desc>
+  <defs><linearGradient id="o" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#679ba2"/><stop offset="1" stop-color="#326d76"/></linearGradient><pattern id="g" width="64" height="40" patternUnits="userSpaceOnUse"><path d="M64 0H0V40" fill="none" stroke="#f5f8ef" stroke-opacity=".1"/></pattern></defs>
+  <rect width="640" height="320" fill="url(#o)"/><rect width="640" height="320" fill="url(#g)"/>
+  <g fill="#aab083" stroke="#ece9bb" stroke-width="2.5">
+    <path d="M149 76c38-35 100-41 141-12s46 76 14 108-99 43-148 13-45-75-7-109Z"/>
+    <path d="M263 171c35-32 91-34 128-7s40 66 8 94-90 32-127 5-43-59-9-92Z"/>
+    <path d="M376 69c31-27 79-27 108-1s25 61-10 81-81 15-104-14-15-42 6-66Z"/>
+    <path d="M429 181c31-24 76-21 101 7s14 59-21 75-81 7-99-24 2-43 19-58Z"/>
+    <path d="M57 223c25-22 65-21 86 3s10 53-20 67-68 5-82-22 1-32 16-48Z"/>
+  </g>
+  <g fill="none" stroke="#fff0aa" stroke-opacity=".72" stroke-width="2.5" stroke-dasharray="8 6"><ellipse cx="323" cy="164" rx="207" ry="143"/></g>
+  <g fill="#e3d488" opacity=".8"><path d="m128 173 18-6-9 17Z"/><path d="m511 142-18 5 9-17Z"/><path d="m333 292 5-19 12 15Z"/></g>
+</svg>

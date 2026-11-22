@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-labelledby="title desc">
+  <title id="title">Lumbricus terrestris</title>
+  <desc id="desc">Ilustración de una lombriz de tierra común desplazándose sobre suelo húmedo.</desc>
+  <defs>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8e6d4"/>
+      <stop offset=".45" stop-color="#93ad82"/>
+      <stop offset=".46" stop-color="#75523a"/>
+      <stop offset="1" stop-color="#3f2d25"/>
+    </linearGradient>
+    <linearGradient id="worm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9574f"/>
+      <stop offset=".5" stop-color="#7c3e3c"/>
+      <stop offset="1" stop-color="#542c34"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="16" stdDeviation="11" flood-color="#201713" flood-opacity=".38"/>
+    </filter>
+    <clipPath id="wormClip">
+      <path d="M86 337C178 226 264 224 356 309c74 69 126 102 196 58 71-45 117-111 254-92"/>
+    </clipPath>
+  </defs>
+  <rect width="900" height="675" fill="url(#soil)"/>
+  <path d="M0 345c143-39 255 26 390-9 153-40 274-91 510-38v377H0z" fill="#5c402f" opacity=".82"/>
+  <g fill="#b89065" opacity=".7">
+    <ellipse cx="90" cy="510" rx="25" ry="14"/><ellipse cx="210" cy="405" rx="18" ry="11"/>
+    <ellipse cx="330" cy="555" rx="31" ry="16"/><ellipse cx="505" cy="468" rx="22" ry="13"/>
+    <ellipse cx="710" cy="543" rx="28" ry="15"/><ellipse cx="820" cy="395" rx="17" ry="10"/>
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#shadow)">
+    <path d="M86 337C178 226 264 224 356 309c74 69 126 102 196 58 71-45 117-111 254-92" stroke="#3b2528" stroke-width="78"/>
+    <path d="M86 337C178 226 264 224 356 309c74 69 126 102 196 58 71-45 117-111 254-92" stroke="url(#worm)" stroke-width="66"/>
+  </g>
+  <g clip-path="url(#wormClip)" opacity=".6" stroke="#d48a78" stroke-width="6">
+    <path d="M100 235v205M128 218v205M156 205v205M184 198v205M212 199v205M240 205v205M268 217v205M296 236v205M324 257v205M352 278v205M380 298v205M408 313v205M436 323v205M464 320v205M492 303v205M520 278v205M548 246v205M576 214v205M604 187v205M632 167v205M660 157v205M688 157v205M716 161v205M744 166v205M772 171v205"/>
+  </g>
+  <path d="M285 268c31 5 59 19 86 43" fill="none" stroke="#d49a84" stroke-width="56" stroke-linecap="round" opacity=".92"/>
+  <path d="M285 268c31 5 59 19 86 43" fill="none" stroke="#75433f" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+  <ellipse cx="806" cy="275" rx="31" ry="28" fill="#6c3738" transform="rotate(-8 806 275)"/>
+  <path d="M92 337c12-7 23-9 34-9" stroke="#dca18e" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+</svg>

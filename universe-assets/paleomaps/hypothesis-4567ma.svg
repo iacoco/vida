@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Tierra recién formada, 4567 millones de años</title>
+  <desc id="desc">Esquema hipotético de un océano de magma y una corteza todavía en acreción; no es una reconstrucción cartográfica.</desc>
+  <defs>
+    <radialGradient id="magma" cx="46%" cy="44%" r="72%"><stop stop-color="#f5ba63"/><stop offset=".48" stop-color="#b95339"/><stop offset="1" stop-color="#3c2737"/></radialGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4a05e"/><stop offset="1" stop-color="#6a3941"/></linearGradient>
+    <pattern id="grid" width="64" height="40" patternUnits="userSpaceOnUse"><path d="M64 0H0V40" fill="none" stroke="#fff" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="640" height="320" fill="url(#magma)"/>
+  <rect width="640" height="320" fill="url(#grid)"/>
+  <g fill="url(#skin)" stroke="#ffe0a2" stroke-opacity=".42" stroke-width="3">
+    <path d="M22 86C62 48 117 54 151 86s23 66-13 84-87 7-111-24S-8 113 22 86Z"/>
+    <path d="M209 27c41-19 101-3 122 28s-9 58-52 66-86-8-90-39 2-46 20-55Z"/>
+    <path d="M381 112c47-33 117-30 151 9s18 77-28 97-112 4-137-37-11-52 14-69Z"/>
+    <path d="M141 219c44-28 100-24 127 11s5 68-39 75-101-10-108-45 1-29 20-41Z"/>
+  </g>
+  <g fill="#ffe5a6" opacity=".52"><circle cx="95" cy="40" r="5"/><circle cx="346" cy="73" r="7"/><circle cx="575" cy="53" r="4"/><circle cx="315" cy="258" r="6"/><circle cx="594" cy="258" r="8"/></g>
+</svg>

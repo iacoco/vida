@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Supercratones separados, 2200 millones de años</title>
+  <desc id="desc">Hipótesis esquemática de varios supercratones independientes durante el Paleoproterozoico.</desc>
+  <defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#61949b"/><stop offset="1" stop-color="#2c6570"/></linearGradient><pattern id="g" width="64" height="40" patternUnits="userSpaceOnUse"><path d="M64 0H0V40" fill="none" stroke="#f3f8ee" stroke-opacity=".1"/></pattern></defs>
+  <rect width="640" height="320" fill="url(#o)"/><rect width="640" height="320" fill="url(#g)"/>
+  <g fill="#a5ac7f" stroke="#e6e4b4" stroke-width="2.5">
+    <path d="M19 81c35-30 92-31 124 0s24 68-17 89-99 12-124-25 0-46 17-64Z"/>
+    <path d="M96 211c27-25 72-25 96 1s12 56-21 72-76 6-91-24 1-33 16-49Z"/>
+    <path d="M244 48c33-24 85-21 108 9s9 61-29 78-87 7-105-26 4-46 26-61Z"/>
+    <path d="M292 200c33-27 84-25 108 4s10 62-28 76-84 2-99-31 1-34 19-49Z"/>
+    <path d="M430 93c42-32 106-27 134 12s10 77-37 94-107-1-124-42 3-44 27-64Z"/>
+    <path d="M518 234c23-19 59-16 76 7s3 48-26 57-63-5-69-30 4-22 19-34Z"/>
+  </g>
+  <g fill="none" stroke="#f6e59c" stroke-opacity=".58" stroke-width="2" stroke-dasharray="7 7"><ellipse cx="78" cy="140" rx="76" ry="82"/><ellipse cx="316" cy="169" rx="96" ry="133"/><ellipse cx="494" cy="146" rx="103" ry="89"/></g>
+</svg>

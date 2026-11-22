@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="675" viewBox="0 0 900 675">
+  <defs>
+    <radialGradient id="bg" cx="52%" cy="46%" r="72%">
+      <stop offset="0" stop-color="#244b4b"/>
+      <stop offset=".58" stop-color="#102e33"/>
+      <stop offset="1" stop-color="#071b22"/>
+    </radialGradient>
+    <radialGradient id="cell" cx="38%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#ffe7a0"/>
+      <stop offset=".42" stop-color="#d6a650"/>
+      <stop offset="1" stop-color="#755029"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" seed="8" result="noise"/>
+      <feBlend in="SourceGraphic" in2="noise" mode="soft-light"/>
+    </filter>
+  </defs>
+  <rect width="900" height="675" fill="url(#bg)"/>
+  <g fill="#9cc7b4" opacity=".18">
+    <circle cx="95" cy="124" r="17"/><circle cx="174" cy="542" r="11"/><circle cx="731" cy="113" r="14"/>
+    <circle cx="805" cy="495" r="20"/><circle cx="643" cy="574" r="8"/><circle cx="278" cy="82" r="7"/>
+  </g>
+  <g fill="none" stroke="#d1a85a" stroke-linecap="round" opacity=".8">
+    <path d="M475 346 C615 295 625 165 782 168 C836 169 855 130 836 91" stroke-width="13"/>
+    <path d="M466 359 C582 432 675 405 731 515 C759 570 818 563 851 604" stroke-width="11"/>
+    <path d="M431 361 C360 457 260 446 230 550 C215 603 158 617 105 598" stroke-width="12"/>
+    <path d="M421 329 C333 279 305 180 206 174 C146 170 110 128 118 80" stroke-width="10"/>
+    <path d="M449 301 C466 214 418 164 446 88" stroke-width="8"/>
+  </g>
+  <g fill="#d8aa59" opacity=".65">
+    <circle cx="782" cy="168" r="18"/><circle cx="731" cy="515" r="14"/><circle cx="230" cy="550" r="16"/>
+    <circle cx="206" cy="174" r="13"/><circle cx="446" cy="88" r="10"/>
+  </g>
+  <circle cx="447" cy="337" r="132" fill="#d7a250" opacity=".25" filter="url(#glow)"/>
+  <circle cx="447" cy="337" r="114" fill="url(#cell)" stroke="#f2d58b" stroke-width="8" filter="url(#grain)"/>
+  <g fill="none" stroke="#fff0bd" opacity=".32">
+    <path d="M372 288 C422 246 491 252 528 304" stroke-width="7"/>
+    <path d="M363 347 C414 318 485 323 533 372" stroke-width="5"/>
+    <path d="M390 410 C434 386 482 391 509 419" stroke-width="4"/>
+  </g>
+  <g fill="#f4d27d" opacity=".78">
+    <circle cx="590" cy="268" r="17"/><circle cx="620" cy="237" r="10"/><circle cx="338" cy="442" r="13"/>
+  </g>
+  <rect x="48" y="612" width="170" height="8" rx="4" fill="#f0e5c0"/>
+  <text x="48" y="648" fill="#e7f1e9" font-family="Arial, sans-serif" font-size="20">Ilustración esquemática</text>
+</svg>

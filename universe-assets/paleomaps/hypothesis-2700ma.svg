@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Posibles supercratones, 2700 millones de años</title>
+  <desc id="desc">Esquema de varias agrupaciones cratónicas hipotéticas, como Vaalbara y Superia; no se afirma una configuración única.</desc>
+  <defs><linearGradient id="o" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#568b94"/><stop offset="1" stop-color="#245e68"/></linearGradient><pattern id="g" width="64" height="40" patternUnits="userSpaceOnUse"><path d="M64 0H0V40" fill="none" stroke="#f2f8f0" stroke-opacity=".1"/></pattern></defs>
+  <rect width="640" height="320" fill="url(#o)"/><rect width="640" height="320" fill="url(#g)"/>
+  <g fill="#9da779" stroke="#e1e4b7" stroke-width="2.4">
+    <path d="M29 102c23-31 65-38 94-18s28 55 1 77-73 21-98-5-16-28 3-54Z"/>
+    <path d="M110 151c25-22 65-20 84 4s8 52-20 66-69 8-85-18 3-38 21-52Z"/>
+    <path d="M250 49c34-25 86-21 109 10s8 62-29 78-88 6-105-28 5-46 25-60Z"/>
+    <path d="M337 159c37-31 94-29 122 4s15 69-25 89-96 12-121-24 2-49 24-69Z"/>
+    <path d="M459 63c26-21 68-17 86 10s2 52-29 62-69-5-76-32 3-28 19-40Z"/>
+    <path d="M527 214c26-22 69-20 88 7s2 55-31 65-72-6-78-34 5-25 21-38Z"/>
+  </g>
+  <g fill="none" stroke="#ffe59c" stroke-opacity=".72" stroke-width="2.5" stroke-dasharray="8 7"><ellipse cx="112" cy="159" rx="105" ry="94"/><ellipse cx="358" cy="158" rx="133" ry="126"/><ellipse cx="543" cy="167" rx="91" ry="123"/></g>
+</svg>

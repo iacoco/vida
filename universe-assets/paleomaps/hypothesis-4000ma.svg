@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Protocrustas y primeros núcleos continentales, 4000 millones de años</title>
+  <desc id="desc">Hipótesis esquemática de pequeñas masas de protocrusta máfica y corteza continental incipiente.</desc>
+  <defs><linearGradient id="o" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2a6471"/><stop offset="1" stop-color="#17404f"/></linearGradient><pattern id="g" width="64" height="40" patternUnits="userSpaceOnUse"><path d="M64 0H0V40" fill="none" stroke="#d6f1ed" stroke-opacity=".08"/></pattern></defs>
+  <rect width="640" height="320" fill="url(#o)"/><rect width="640" height="320" fill="url(#g)"/>
+  <g fill="#9a8d64" stroke="#d9cc93" stroke-width="2.5" stroke-dasharray="8 5">
+    <path d="M37 117c24-35 74-47 112-21s33 67-1 89-87 17-112-16-18-25 1-52Z"/>
+    <path d="M206 31c29-18 74-9 92 19s0 55-32 65-75-4-83-34 4-37 23-50Z"/>
+    <path d="M282 194c32-26 85-27 113 2s13 64-25 80-91 4-106-30 0-36 18-52Z"/>
+    <path d="M430 91c31-25 82-21 103 9s3 58-34 69-80-5-88-35 1-29 19-43Z"/>
+    <path d="M511 226c25-20 66-17 83 8s0 51-31 59-70-7-75-34 7-25 23-33Z"/>
+  </g>
+  <g fill="#c8b378"><circle cx="98" cy="135" r="17"/><circle cx="242" cy="68" r="13"/><circle cx="334" cy="227" r="19"/><circle cx="474" cy="124" r="15"/><circle cx="550" cy="255" r="12"/></g>
+</svg>

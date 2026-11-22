@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" role="img" aria-labelledby="title desc">
+  <title id="title">Océanos tempranos y corteza dispersa, 4400 millones de años</title>
+  <desc id="desc">Esquema hipotético basado en indicios de océanos y corteza temprana; la geometría y las posiciones no están reconstruidas.</desc>
+  <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#315e72"/><stop offset="1" stop-color="#153746"/></linearGradient>
+    <pattern id="grid" width="64" height="40" patternUnits="userSpaceOnUse"><path d="M64 0H0V40" fill="none" stroke="#d6f1ed" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="640" height="320" fill="url(#ocean)"/><rect width="640" height="320" fill="url(#grid)"/>
+  <g fill="#b58b63" stroke="#f0d59e" stroke-opacity=".78" stroke-width="3" stroke-dasharray="7 7">
+    <path d="M72 92c28-24 73-24 94 2s7 56-29 67-78-5-84-35 1-19 19-34Z"/>
+    <path d="M244 187c34-27 89-25 113 6s7 62-36 73-92-10-97-43 0-20 20-36Z"/>
+    <path d="M429 73c39-25 94-19 113 16s-2 62-43 69-88-13-92-46c-2-18 5-29 22-39Z"/>
+    <path d="M522 224c20-17 53-15 69 6s3 43-23 49-59-6-64-28 3-19 18-27Z"/>
+  </g>
+  <g fill="#d8b475" opacity=".75"><circle cx="199" cy="50" r="6"/><circle cx="376" cy="105" r="4"/><circle cx="115" cy="241" r="5"/><circle cx="607" cy="94" r="4"/></g>
+</svg>
